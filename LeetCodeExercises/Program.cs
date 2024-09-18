@@ -2,8 +2,8 @@
 
 #region Arrays and Strings
 
-string result = ArraysAndStrings.MergeAlternately("abc", "qwerty");
-// string result = ArraysAndStrings.GcdOfStrings("ABAB", "ABABAB");
+//string result = ArraysAndStrings.MergeAlternately("abc", "qwerty");
+string result = ArraysAndStrings.GcdOfStrings("ABAB", "ABABAB");
 // var result = ArraysAndStrings.KidsWithCandies([10, 2, 3], 3);
 // bool result = ArraysAndStrings.CanPlaceFlowers([1, 0, 0, 0, 1], 1);
 // string result = ArraysAndStrings.ReverseWords("The sky is blue.");

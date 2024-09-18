@@ -36,6 +36,30 @@ public static class ArraysAndStrings
         return mergedWord.ToString();
     }
 
+    /// <summary>
+    /// Using the Euclidean Algorithm to find the GCD
+    /// </summary>
+    /// <param name="str1"></param>
+    /// <param name="str2"></param>
+    /// <returns></returns>
+    public static string GcdOfStrings(string str1, string str2) 
+    {
+        if(!(str1 + str2).Equals(str2 + str1)) return string.Empty;
+
+        int remainder; 
+        int gcd = str1.Length; 
+        int gcd_candidate = str2.Length;
+
+        while (gcd_candidate is not 0)
+        {
+            remainder = gcd % gcd_candidate;
+            gcd = gcd_candidate;
+            gcd_candidate = remainder;
+        }
+
+        return str2[0..gcd];
+    }
+
 
     #endregion
 }
