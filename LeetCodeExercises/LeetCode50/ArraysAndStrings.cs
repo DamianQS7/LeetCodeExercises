@@ -60,6 +60,44 @@ public static class ArraysAndStrings
         return str2[0..gcd];
     }
 
+    /// <summary>
+    /// Best performance
+    /// </summary>
+    /// <param name="candies"></param>
+    /// <param name="extraCandies"></param>
+    /// <returns></returns>
+    public static IList<bool> KidsWithCandiesUsingLINQ(int[] candies, int extraCandies) =>
+        candies.Select(x => x + extraCandies >= candies.Max()).ToList();
 
+    /// <summary>
+    /// Very slow performance
+    /// </summary>
+    /// <param name="candies"></param>
+    /// <param name="extraCandies"></param>
+    /// <returns></returns>
+    public static IList<bool> KidsWithCandiesNoLINQ(int[] candies, int extraCandies)
+    {
+        bool[] result = new bool[candies.Length];
+        int max = 0;
+
+        for (int x = 0; x < candies.Length; x++)
+        {
+            if (candies[x] > max)
+                max = candies[x];
+        }
+
+        for (int i = 0; i < candies.Length; i++)
+        {
+            if (candies[i] + extraCandies >= max)
+                result[i] = true;
+            else
+                result[i] = false;
+                
+        }
+
+        return result;
+    }
+    
+    
     #endregion
 }
