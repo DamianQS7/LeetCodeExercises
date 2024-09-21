@@ -5,7 +5,7 @@
 //string result = ArraysAndStrings.MergeAlternately("abc", "qwerty");
 //string result = ArraysAndStrings.GcdOfStrings("ABAB", "ABABAB");
 //var result = ArraysAndStrings.KidsWithCandiesUsingLINQ([10, 2, 3], 3);
-//bool result = ArraysAndStrings.CanPlaceFlowers([1, 0, 0, 0, 1], 1);
+//bool result = ArraysAndStrings.CanPlaceFlowers([1, 0, 1, 0, 0], 2);
 //string result = ArraysAndStrings.ReverseWords("The sky is blue.");
 //var result = ArraysAndStrings.ProductExceptSelf([1, 2, 3]);
 //var result = ArraysAndStrings.IncreasingTriplet([6, 7, 1, 2]);

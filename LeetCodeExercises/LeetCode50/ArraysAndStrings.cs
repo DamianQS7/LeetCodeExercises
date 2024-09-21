@@ -98,6 +98,31 @@ public static class ArraysAndStrings
         return result;
     }
     
-    
+    /// <summary>
+    /// Takeaway: If you are afraid of getting index out of bounds exception while checking the previous or later index
+    /// in an array, you can add an index check before the condition you are aiming for
+    /// </summary>
+    /// <param name="flowerbed"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public static bool CanPlaceFlowers(int[] flowerbed, int n)
+    {
+        for (int x = 0; x<flowerbed.Length; x++)
+        {
+            if (flowerbed[x] == 1)
+                continue;
+
+            if ((x - 1 >= 0 && flowerbed[x - 1] == 1) || (x + 1 < flowerbed.Length && flowerbed[x + 1] == 1))
+                continue;
+            else
+                flowerbed[x] = 1;
+                n--;
+        }
+
+        return n <= 0;
+    }
+
+
+
     #endregion
 }
