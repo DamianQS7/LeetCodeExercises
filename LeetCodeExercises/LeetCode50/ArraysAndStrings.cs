@@ -122,7 +122,43 @@ public static class ArraysAndStrings
         return n <= 0;
     }
 
+    public static string ReverseVowels(string word)
+    {
+        char[] vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+        int x = 0;
+        int y = word.Length -1;
+        char[] lettersInWord = new char[word.Length];
 
+        for(int i = 0; i < word.Length; i++)
+            lettersInWord[i] = word[i];
+        
+        while(x < y)
+        {
+            if (!vowels.Contains(word[x]) && !vowels.Contains(word[y]))
+            {
+                x++;
+                y--;
+            }
+            else if (!vowels.Contains(word[x]))
+            {
+                x++;
+            }
+            else if (!vowels.Contains(word[y]))
+            {
+                y--;
+            }
+            else
+            {
+                lettersInWord[y] = word[x];
+                lettersInWord[x] = word[y];
+                x++;
+                y--;
+            }
+
+        }
+
+        return new String(lettersInWord);
+    }
 
     #endregion
 }
