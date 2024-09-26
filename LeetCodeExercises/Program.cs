@@ -6,7 +6,8 @@
 //string result = ArraysAndStrings.GcdOfStrings("ABAB", "ABABAB");
 //var result = ArraysAndStrings.KidsWithCandiesUsingLINQ([10, 2, 3], 3);
 //bool result = ArraysAndStrings.CanPlaceFlowers([1, 0, 1, 0, 0], 2);
-var result = ArraysAndStrings.ReverseVowels("leetcode");
+//var result = ArraysAndStrings.ReverseVowels("leetcode");
+var result = ArraysAndStrings.ReverseWords("The sky is blue");
 //var result = ArraysAndStrings.ProductExceptSelf([1, 2, 3]);
 //var result = ArraysAndStrings.IncreasingTriplet([6, 7, 1, 2]);
 //var result = SecondTimeArraysAndStrings.KidsWithCandies([2, 3, 5, 1, 3], 3);

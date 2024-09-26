@@ -134,20 +134,12 @@ public static class ArraysAndStrings
         
         while(x < y)
         {
-            if (!vowels.Contains(word[x]) && !vowels.Contains(word[y]))
-            {
+            if (!vowels.Contains(word[x]))
                 x++;
+            if (!vowels.Contains(word[y]))
                 y--;
-            }
-            else if (!vowels.Contains(word[x]))
-            {
-                x++;
-            }
-            else if (!vowels.Contains(word[y]))
-            {
-                y--;
-            }
-            else
+            
+            if (vowels.Contains(word[x]) && vowels.Contains(word[y]))
             {
                 lettersInWord[y] = word[x];
                 lettersInWord[x] = word[y];
@@ -160,5 +152,85 @@ public static class ArraysAndStrings
         return new String(lettersInWord);
     }
 
+    #endregion
+
+    #region Medium
+
+    public static string ReverseWords(string s)
+    {
+        StringBuilder output = new();
+
+        string[] words = s.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        
+        for (int x = words.Length - 1; x >= 0; x--)
+        {
+            output.Append(words[x]);
+            if (x > 0)
+                output.Append(' ');
+        }
+
+        return output.ToString();
+    }
+
+    /// <summary>
+    /// Using "Prefix and Suffix Products" Approach.
+    /// This is doing all the stuff explicitly.
+    /// We can do better using less array in an improved form of this algorithm.
+    /// </summary>
+    /// <param name="nums"></param>
+    /// <returns></returns>
+    public static int[] ProductExceptSelf(int[] nums)
+    {
+        int[] suffix = new int[nums.Length];
+        int[] prefix = new int[nums.Length];
+        int[] output = new int[nums.Length];
+        prefix[0] = 1;
+        suffix[^1] = 1;
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            prefix[i] = prefix[i - 1] * nums[i - 1];
+        }
+
+        for (int j = nums.Length - 2; j >= 0; j--)
+        {
+            suffix[j] = suffix[j + 1] * nums[j + 1];
+        }
+
+        for (int x = 0; x < nums.Length; x++)
+        {
+            output[x] = prefix[x] * suffix[x];
+        }
+
+        return output;
+    }
+
+    /// <summary>
+    /// This version is using the same principle, but instead of using multiple arrays explicitly,
+    /// we are going to use a variable that holds the values we need for the second iteration.
+    /// All the results will be computed within the same array that will be the output.
+    /// </summary>
+    /// <param name="nums"></param>
+    /// <returns></returns>
+    public static int[] ProductExceptSelfImproved(int[] nums)
+    {
+        
+        int[] output = new int[nums.Length];
+        output[0] = 1;
+        int right = 1;
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            output[i] = output[i - 1] * nums[i - 1];
+        }
+
+        for (int j = nums.Length - 1; j >= 0; j--)
+        {
+            output[j] = output[j] * right;
+            right *= nums[j];
+        }
+
+        return output;
+    }
     #endregion
 }
